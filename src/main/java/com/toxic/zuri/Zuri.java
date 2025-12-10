@@ -2,6 +2,10 @@ package com.toxic.zuri;
 
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
+
+import com.toxic.zuri.checks.CheckListener;
+import com.toxic.zuri.checks.CheckRegistry;
+
 import cn.nukkit.event.Listener;
 
 public class Zuri extends PluginBase implements Listener {
@@ -11,6 +15,7 @@ public class Zuri extends PluginBase implements Listener {
         saveDefaultConfig();
         this.getLogger().info(TextFormat.GREEN + "Zuri is loading...");
         getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents(new CheckListener(new CheckRegistry(this)), this);
         this.getLogger().info(TextFormat.GREEN + "Zuri has been enabled!");
         this.getLogger().info(TextFormat.GOLD + "Warning: This plugin is currently in beta and isnt 1 to 1 to the actual zuri, some improvements have been made.");
     }
