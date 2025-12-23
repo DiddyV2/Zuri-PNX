@@ -33,7 +33,7 @@ public abstract class Check {
 
     public abstract void handle(Player player, Object data);
 
-    public void flag(Player player, float amount, String reason, Object... extra) {
+    public void flag(Player player, float amount, String reason) {
         String msg = PREFIX + player.getName() +
                 " failed " + getName() + getType() +
                 " (+" + amount + ") Reason: " + reason;
@@ -42,7 +42,7 @@ public abstract class Check {
         plugin.getLogger().warning(msg);
     }
 
-    public void reward(Player player, float amount, String reason, Object... extra) {
+    public void reward(Player player, float amount, String reason) {
         String msg = PREFIX + player.getName() +
                 " rewarded on " + getName() + getType() +
                 " (-" + amount + ") Reason: " + reason;
