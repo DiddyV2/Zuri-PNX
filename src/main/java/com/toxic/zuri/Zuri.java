@@ -13,11 +13,13 @@ public class Zuri extends PluginBase implements Listener {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        CheckRegistry registry = new CheckRegistry(this);
+        registry.registerAll();
         this.getLogger().info(TextFormat.GREEN + "Zuri is loading...");
         getServer().getPluginManager().registerEvents(this, this);
-        getServer().getPluginManager().registerEvents(new CheckListener(new CheckRegistry(this)), this);
+        getServer().getPluginManager().registerEvents(new CheckListener(registry), this);
         this.getLogger().info(TextFormat.GREEN + "Zuri has been enabled!");
-        this.getLogger().info(TextFormat.GOLD + "Warning: This plugin is currently in beta and isnt 1 to 1 to the actual zuri, some improvements have been made.");
+        this.getLogger().info(TextFormat.GOLD + "Warning: This plugin is currently in alpha and isnt 1 to 1 to the actual zuri, some improvements have been made.");
     }
 
     @Override
